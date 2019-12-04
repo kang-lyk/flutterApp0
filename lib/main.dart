@@ -19,10 +19,40 @@ class MyApp extends StatelessWidget {
                 tooltip: '试试tooltip是什么',
                 onPressed: () {
                   print('onPressed');
-                }
+                }),
+              IconButton(
+                icon: Icon(Icons.home),
+                tooltip: "Home",
+                onPressed: () {
+                  print("Home");
+                },
               ),
+              PopupMenuButton(
+                itemBuilder: (BuildContext context) => <PopupMenuItem<String>>[
+                  PopupMenuItem<String>(
+                    child: Text("热度"),
+                    value: "hot",
+                  ),
+                  PopupMenuItem<String>(
+                    child: Text("最新"),
+                    value: "new",
+                  ),
+                ],
+                onSelected: (String action) {
+                  switch (action) {
+                    case "hot":
+                      print("hot");
+                      break;
+                    case "new":
+                      print("new");
+                      break;
+                  }
+                },
+                onCanceled: () {
+                  print("onCanceled");
+                },
+              )
             ],
-           
           ),
           body: Center(
             child: Text('我是body里的东西'),
