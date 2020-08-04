@@ -13,13 +13,62 @@ class ListPage extends StatelessWidget {
           title: Text('这是第二页'),
           leading: Icon(Icons.arrow_back_ios),
         ),
-        body: Center(child: RaisedButton(
-          child: Text('走，咱们回到首页去'),
-          onPressed: (){
-            Navigator.pushNamed(context, '/');
-          },
-        )),
+        body: Container(
+          child: ListView(
+            shrinkWrap: true,
+            padding: const EdgeInsets.all(5.0),
+            children: <Widget>[
+              new ListTile(
+                leading: Image(
+                  image: NetworkImage(
+                    'https://picsum.photos/200/200'
+                  ),
+                  width: 40,
+                ),
+                title: Text('列表项标题'),
+                subtitle: Text('列表项内容'),
+                onTap: () {
+                  Navigator.pushNamed(context, '/');
+                }
+              ),
+              new ListTile(
+                leading: Image(
+                  image: NetworkImage(
+                      'https://picsum.photos/200/200'
+                  ),
+                  width: 40,
+                ),
+                title: Text('列表项标题'),
+                subtitle: Text('列表项内容'),
+                  isThreeLine: false,
+              ),
+              new ListTile(
+                leading: Image(
+                  image: NetworkImage(
+                      'https://picsum.photos/200/200'
+                  ),
+                  width: 40,
+                ),
+                title: Text('列表项标题'),
+                subtitle: Text('列表项内容'),
+                isThreeLine: false,
+              ),
+              Text(
+                 '列表0',
+                 style: TextStyle(
+                   fontSize: 20,
+                   color: Color(0xff388E3C)
+                 ),
+               ),
+              Text('列表1'),
+              Text('列表2'),
+              Text('列表3'),
+              Text('列表4'),
+            ],
+          )
+        )
       ),
     );
   }
 }
+
